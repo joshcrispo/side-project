@@ -1,5 +1,5 @@
 # Base image
-FROM openliberty/open-liberty:full-java21-openj9
+FROM icr.io/appcafe/open-liberty
 
 # War file -> Liberty Dropins Dir
 COPY target/location-service.war /config/dropins/location-service.war
