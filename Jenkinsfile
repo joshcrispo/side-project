@@ -35,7 +35,7 @@ pipeline {
         stage('Containerize Services') {
             parallel {
                 stage('Containerize Weather Service') {
-                    step {
+                    steps {
                         dir('weather-service') {
                             sh '''
                                 podman build -t weather-service .
@@ -46,7 +46,7 @@ pipeline {
                     }
                 }
                 stage('Containerize Location Service') {
-                    step {
+                    steps {
                         dir('location-service') {
                             sh '''
                                 podman build -t location-service .
@@ -61,7 +61,7 @@ pipeline {
 
         stage('Deploy Services') {
             steps {
-                ssh '''
+                sh '''
                     podman pod create --name microservices-pod -p 9091:9091 p-9092:9092
                     podman run -d --pod microservices-pod --name location-service ${PODMAN_REGISTRY}/location-service:latest
                     podman run -d --pod microservices-pod --name weather-service ${PODMAN_REGISTRY}/weather-service:latest
