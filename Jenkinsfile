@@ -58,7 +58,7 @@ pipeline {
         stage('Deploy Services') {
             steps {
                 sh '''
-                    podman pod create --name microservices-pod -p 9091:9091 p-9092:9092
+                    podman pod create --name microservices-pod -p 9091:9091 -p 9092:9092
                     podman run -d --pod microservices-pod --name location-service location-service:latest
                     podman run -d --pod microservices-pod --name weather-service weather-service:latest
                 '''
