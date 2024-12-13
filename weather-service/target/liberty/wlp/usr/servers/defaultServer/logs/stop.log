@@ -1,0 +1,13 @@
+
+arg0=defaultServer
+arg1=--pid=
+arg2=--stop
+exit=1
+
+                 Java home:  /Library/Java/JavaVirtualMachines/ibm-semeru-open-11.jdk/Contents/Home
+              Install root:  /Users/joshua.ar/Desktop/LearningProjs/side-project/weather-service/target/liberty/wlp/
+          System libraries:  /Users/joshua.ar/Desktop/LearningProjs/side-project/weather-service/target/liberty/wlp/lib/
+                 User root:  /Users/joshua.ar/Desktop/LearningProjs/side-project/weather-service/target/liberty/wlp/usr/
+                    Config:  /Users/joshua.ar/Desktop/LearningProjs/side-project/weather-service/target/liberty/wlp/usr/servers/defaultServer/
+                    Output:  /Users/joshua.ar/Desktop/LearningProjs/side-project/weather-service/target/liberty/wlp/usr/servers/defaultServer/
+

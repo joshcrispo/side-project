@@ -1,0 +1,41 @@
+********************************************************************************
+product = Open Liberty 24.0.0.12 (wlp-1.0.96.cl241220241119-0657)
+wlp.install.dir = /Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/liberty/wlp/
+java.home = /Library/Java/JavaVirtualMachines/ibm-semeru-open-11.jdk/Contents/Home
+java.version = 11.0.25
+java.runtime = IBM Semeru Runtime Open Edition (11.0.25+9)
+os = Mac OS X (15.1.1; aarch64) (en_IE)
+process = 35359@Joshuas-MacBook-Pro.local
+Classpath = /Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/liberty/wlp/bin/tools/ws-server.jar
+Java Library path = /Library/Java/JavaVirtualMachines/ibm-semeru-open-11.jdk/Contents/Home/lib/default:/Library/Java/JavaVirtualMachines/ibm-semeru-open-11.jdk/Contents/Home/lib:/usr/lib
+********************************************************************************
+[13/12/2024, 12:32:39:407 GMT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[13/12/2024, 12:32:40:175 GMT] 00000029 com.ibm.ws.config.xml.internal.ServerXMLConfiguration        A CWWKG0093A: Processing configuration drop-ins resource: /Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml
+[13/12/2024, 12:32:40:779 GMT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 1.752 seconds
+[13/12/2024, 12:32:40:804 GMT] 00000033 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[13/12/2024, 12:32:42:367 GMT] 00000027 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[13/12/2024, 12:32:42:743 GMT] 00000028 org.jboss.weld.Version                                       I WELD-000900: 5.1.1 (SP2)
+[13/12/2024, 12:32:43:179 GMT] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application location-service.
+[13/12/2024, 12:32:43:185 GMT] 00000035 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The location-service application is using the loose application definition at the /Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/liberty/wlp/usr/servers/defaultServer/apps/location-service.war.xml location.
+[13/12/2024, 12:32:44:591 GMT] 00000035 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[13/12/2024, 12:32:44:601 GMT] 00000035 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[13/12/2024, 12:32:44:603 GMT] 00000035 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[13/12/2024, 12:32:44:603 GMT] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.0.35:9091/api/
+[13/12/2024, 12:32:44:632 GMT] 00000037 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/api
+[13/12/2024, 12:32:44:642 GMT] 00000037 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[13/12/2024, 12:32:44:707 GMT] 00000037 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application location-service started in 1.529 seconds.
+[13/12/2024, 12:32:44:773 GMT] 00000033 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host *  (IPv6) port 9091.
+[13/12/2024, 12:32:44:797 GMT] 00000033 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [cdi-4.0, jndi-1.0, jsonb-3.0, jsonp-2.1, restfulWS-3.1, restfulWSClient-3.1].
+[13/12/2024, 12:32:44:798 GMT] 00000033 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 4.031 seconds.
+[13/12/2024, 12:32:44:798 GMT] 00000033 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 5.782 seconds.
+[13/12/2024, 12:32:44:861 GMT] 00000039 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[13/12/2024, 12:32:45:074 GMT] 00000037 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.guides.rest.SystemApplication$Proxy$_$$_WeldClientProxy
+[13/12/2024, 12:32:45:097 GMT] 00000037 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [location-service] [/api] [io.openliberty.guides.rest.SystemApplication]: Initialization successful.
+[13/12/2024, 12:32:56:611 GMT] 00000022 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[13/12/2024, 12:32:56:613 GMT] 00000058 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[13/12/2024, 12:32:56:620 GMT] 0000004e com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host *  (IPv6) port 9091.
+[13/12/2024, 12:32:56:621 GMT] 0000004e com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.0.35:9091/api/
+[13/12/2024, 12:32:57:034 GMT] 00000023 com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Friday 13 December 2024 at 12:32. The server defaultServer is shutting down.
+[13/12/2024, 12:32:57:624 GMT] 00000058 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[13/12/2024, 12:32:57:660 GMT] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application location-service has stopped successfully.
+[13/12/2024, 12:32:57:919 GMT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 18.903 seconds.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <dir sourceOnDisk="/Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/src/main/webapp" targetInArchive="/"/>
+    <dir sourceOnDisk="/Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/classes" targetInArchive="/WEB-INF/classes"/>
+    <file sourceOnDisk="/Users/joshua.ar/Desktop/LearningProjs/side-project/location-service/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
+</archive>
