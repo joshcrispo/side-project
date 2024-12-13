@@ -1,5 +1,5 @@
 # Base image
-FROM icr.io/appcafe/open-liberty
+FROM icr.io/appcafe/open-liberty:kernel-java21-openj9-ubi-minimal
 
 # War file -> Liberty Dropins Dir
 COPY target/location-service.war /config/dropins/location-service.war
