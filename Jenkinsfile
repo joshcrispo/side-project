@@ -39,8 +39,6 @@ pipeline {
                         dir('weather-service') {
                             sh '''
                                 podman build -t weather-service .
-                                podman tag location-service ${PODMAN_REGISTRY}/weather-service:latest
-                                podman push ${PODMAN_REGISTRY}/weather-service:latest
                             '''
                         }
                     }
@@ -50,8 +48,6 @@ pipeline {
                         dir('location-service') {
                             sh '''
                                 podman build -t location-service .
-                                podman tag location-service ${PODMAN_REGISTRY}/location-service:latest
-                                podman push ${PODMAN_REGISTRY}/location-service:latest
                             '''
                         }
                     }
