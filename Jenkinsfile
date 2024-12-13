@@ -59,8 +59,8 @@ pipeline {
             steps {
                 sh '''
                     podman pod create --name microservices-pod -p 9091:9091 p-9092:9092
-                    podman run -d --pod microservices-pod --name location-service ${PODMAN_REGISTRY}/location-service:latest
-                    podman run -d --pod microservices-pod --name weather-service ${PODMAN_REGISTRY}/weather-service:latest
+                    podman run -d --pod microservices-pod --name location-service location-service:latest
+                    podman run -d --pod microservices-pod --name weather-service weather-service:latest
                 '''
             }
         }
