@@ -1,12 +1,14 @@
-# Base image
-FROM icr.io/appcafe/open-liberty:kernel-java21-openj9-ubi-minimal
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:11-jre-slim
 
-# War file -> Liberty Dropins Dir
-COPY target/weather-service.war /config/dropins/weather-service.war
+# Set the working directory inside the container
+WORKDIR /app
 
-# Server Config -> Liberty Config File
-COPY src/main/liberty/config/server.xml /config/
+# Copy the Maven build artifact (JAR) into the container
+COPY target/weather-service.jar weather-service.jar
 
-EXPOSE 9092
+# Expose the port the app runs on
+EXPOSE 8081
 
-CMD ["/opt/ibm/wlp/bin/server", "run", "defaultServer"]
+# Run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "weather-service.jar"]

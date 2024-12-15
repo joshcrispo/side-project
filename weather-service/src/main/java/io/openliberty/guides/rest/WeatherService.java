@@ -1,51 +1,45 @@
 package io.openliberty.guides.rest;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
-@Path("weather")
+@RestController
 public class WeatherService {
 
-    @GET
-    @Path("/{locId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getWeatherByLocation(@PathParam("locId") String locId) {
+    private final RestTemplate restTemplate;
+
+    // Inject RestTemplate
+    @Autowired
+    public WeatherService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    @GetMapping("/weather/{locId}")
+    public ResponseEntity<String> getWeatherByLocation(@PathVariable("locId") String locId) {
         try {
-            URL url = new URL("http://192.168.0.35:9091/api/v1/locations/" + locId);
-            System.out.println(url);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
+            String location = restTemplate.getForObject("http://localhost:8080/v1/locations/" + locId, String.class);
 
-            BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder locationResponse = new StringBuilder();
-            String inputLine;
+            if (location != null) {
+                String weatherJson = "{\"weather\": \"Sunny, 25C\", \"location\": " + location.toString() + "}";
 
-            while((inputLine = input.readLine()) != null) {
-                locationResponse.append(inputLine);
+                return ResponseEntity.ok()
+                                 .header("Content-Type", "application/json")
+                                 .body(weatherJson);
+            } else {
+                // If location not found, send a failure message
+                return ResponseEntity.status(404).body("Location not found for ID: " + locId);
             }
 
-            input.close();
-
-            if (connection.getResponseCode() == 200) {
-                String weather = "{\"weather\": \"Sunny, 25C\", \"location\": " + locationResponse.toString() + "}";
-                return Response.ok(weather).build();
-            }
-
-            return Response.status(Response.Status.NOT_FOUND).entity("Location not found, ID: " + locId).build();
-            
-            
         } catch (Exception e) {
             e.printStackTrace();
-            return Response.status(Response.Status.NOT_FOUND).entity("Failed to fetch weather data").build();
+            return ResponseEntity.status(500).body("Failed to fetch weather data");
         }
-    } 
+    }
 }

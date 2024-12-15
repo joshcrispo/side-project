@@ -1,12 +1,14 @@
-# Base image
-FROM icr.io/appcafe/open-liberty:kernel-java21-openj9-ubi-minimal
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:11-jre-slim
 
-# War file -> Liberty Dropins Dir
-COPY target/location-service.war /config/dropins/location-service.war
+# Set the working directory inside the container
+WORKDIR /app
 
-# Server Config -> Liberty Config File
-COPY src/main/liberty/config/server.xml /config/
+# Copy the Maven build artifact (JAR) into the container
+COPY target/location-service.jar location-service.jar
 
-EXPOSE 9091
+# Expose the port the app runs on
+EXPOSE 8080
 
-CMD ["/opt/ibm/wlp/bin/server", "run", "defaultServer"]
+# Run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "location-service.jar"]

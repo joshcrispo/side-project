@@ -1,9 +1,20 @@
 package io.openliberty.guides.rest;
 
-import jakarta.ws.rs.core.Application;
-import jakarta.ws.rs.ApplicationPath;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
-@ApplicationPath("v1")
-public class SystemApplication extends Application {
+@SpringBootApplication
+public class SystemApplication {
 
+    public static void main(String[] args) {
+        SpringApplication.run(SystemApplication.class, args); // Bootstraps the Spring Boot application
+    }
+
+    // Define RestTemplate as a Bean
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }

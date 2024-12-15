@@ -1,9 +1,13 @@
 package io.openliberty.guides.rest;
 
-import jakarta.ws.rs.core.Application;
-import jakarta.ws.rs.ApplicationPath;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@ApplicationPath("v1")
-public class SystemApplication extends Application {
+@SpringBootApplication
+public class SystemApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SystemApplication.class, args);
+    }
 
 }

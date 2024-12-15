@@ -2,19 +2,19 @@ package io.openliberty.guides.rest;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import io.openliberty.guides.rest.Model.Location;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Path("locations")
+import io.openliberty.guides.rest.Model.Location;
+
+@RestController
 public class LocationService {
 
+    // In-memory data for location
     public static Map<String, Location> locations = new HashMap<>();
 
     static {
@@ -22,22 +22,16 @@ public class LocationService {
         locations.put("2", new Location("2", "New York", "USA"));
         locations.put("3", new Location("3", "Manila", "Philippines"));
     }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Collection<Location> getAllUsers() {
+
+    // Get all locations
+    @GetMapping("/v1/locations")
+    public Collection<Location> getAllLocations() {
         return locations.values();
     }
 
-    @GET
-    @Path("/{locId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getLocation(@PathParam("locId") String locId) {
-        Location location = locations.get(locId);
-
-        if (location != null) {
-            return Response.ok(location).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).entity("Location not found").build();
+    // Get a specific location by ID
+    @GetMapping("/v1/locations/{locId}")
+    public Location getLocation(@PathVariable String locId) {
+        return locations.get(locId);
     }
 }
