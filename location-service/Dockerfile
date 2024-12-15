@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/location-service.jar location-service.jar
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 9091
 
 # Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "location-service.jar"]

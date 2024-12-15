@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/weather-service.jar weather-service.jar
 
 # Expose the port the app runs on
-EXPOSE 8081
+EXPOSE 9092
 
 # Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "weather-service.jar"]
